@@ -1,7 +1,11 @@
 Node Web REPL
 =============
 
-Add a web-based REPL to your Node apps in a simple way.
+This app is currently very rough and not really usable
+
+Add a web-based command prompt to your Node apps in a simple way. Use this
+to debug your apps, alter behavior on the fly, review in-app data structures,
+ruin everything, etc.
 
 How to use:
 
@@ -16,4 +20,9 @@ in to your existing routes. Motivation:
   mine is.
 * Eventually, we may stop using Express entirely.
 
+Author
+------
+
+Written by Thomas Lackner ([@tlack](http://twitter.com/tlack)) and sponsored
+by [.CO](http://go.co)
 
