@@ -1,7 +1,7 @@
 Node Web REPL
 =============
 
-![Screenshot](http://www.modernmethod.com/send/files/node-web-repl-screenshot.png)
+![Screenshot](http://www.modernmethod.com/send/files/node-web-repl-screenshot.gif)
 
 This npm is currently a bit rough, but already has aided some of my debugging
 efforts.
@@ -53,21 +53,22 @@ internal dashboard (something every app should have).
 * Hook console.log so you can view your console output via a web browser
 * Allow you to pass in custom functions and data to be available in the repl
 (right now you can only access stuff descending from the global scope)
-* UI/UX cleanup - make it look slightly less like garbage
+* UI/UX cleanup - make it look slightly less like garbage, scrollbars, etc
 * Visual data browser (scope out 'global' and descend from there)
 * Profile on the fly
 * View Node.js's memory usage
 * Autocomplete
 * MySQL console?
 * Memcache console?
+* Activity log?
 
 Ingredients
 -----------
 
 We use Node.js, Express, HTTP auth via express.basicAuth middleware, and Hogan
-for templating. jcubic-jquery.terminal is used for the type-in terminal code
-on the client side. Your input is sent via Ajax to the /api endpoint, which 
-eval()'s you code and spits back a string.
+for templating. [jcubic-jquery.terminal](http://terminal.jcubic.pl/) is used
+for the type-in terminal code on the client side. Your input is sent via Ajax
+to the /api endpoint, which eval()'s you code and spits back a string.
 
 Author
 ------
