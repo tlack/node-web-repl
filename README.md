@@ -1,6 +1,8 @@
 Node Web REPL
 =============
 
+![Screenshot](http://www.modernmethod.com/send/files/node-web-repl-screenshot.png)
+
 This npm is currently a bit rough, but already has aided some of my debugging
 efforts.
 
@@ -23,8 +25,10 @@ How to use:
 		host: '127.0.0.1'
 	});
 
-You'll (hopefully) now have a running web-based REPL on port 11911! See
-test_app.js for a full example. (More examples coming soon.)
+You'll (hopefully) now have a running web-based REPL on port 11911! Connect and
+type in '1+2' to do some fun math, or 'globals' to browse the global object. 
+
+See tests/ for a full example. (More examples coming soon.)
 
 Architecture notes
 ------------------
