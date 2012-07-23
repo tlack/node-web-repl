@@ -7,6 +7,8 @@
   , "dependencies": {
       "express": "2.5.8"
     , "stylus": ">= 0.0.1"
+		, "hulk-hogan": ">= 0.0.1"
+		, "node.extend": ">= 0.0.1"
   }
 	, "main": "node-web-repl.js"
 }
