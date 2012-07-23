@@ -7,7 +7,7 @@
 global.hits = 0
 
 var express = require('express')
-	, webrepl = require('./node-web-repl');
+	, webrepl = require('../node-web-repl');
 
 var app = module.exports = express.createServer();
 
