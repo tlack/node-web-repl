@@ -1,7 +1,7 @@
 {
     "name": "node-web-repl"
 	, "description": "Add a web-based read/eval/print/loop to your Node.js app (useful for debugging)"
-  , "version": "0.0.3"
+  , "version": "0.0.4"
   , "keywords": ["repl", "command line", "debugging"]
 	, "author": "Thomas Lackner <lackner@gmail.com>"
   , "dependencies": {
