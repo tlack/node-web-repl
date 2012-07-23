@@ -1,41 +1,29 @@
-/**
- * Module dependencies.
- */
+// Node Web REPL test app - a counter that you can inspect via your browser
+// 
+// Start this app and then navigate to http://localhost:11911 - once there,
+// inspect and change 'global.hits'
 
-var config = require('./config')
-	, express = require('express')
-	, hulk = require('hulk-hogan')
-  , routes = require('./routes');
+// Our hit counter - what you'll be playing with:
+global.hits = 0
+
+var express = require('express')
+	, webrepl = require('./node-web-repl');
 
 var app = module.exports = express.createServer();
 
 // Configuration
-
 app.configure(function(){
-	app.register('.hulk', hulk);
-  app.set('views', __dirname + '/views');
-  app.set('view engine', 'hulk');
-	app.use(express.basicAuth(config.auth.username, config.auth.password));
-  app.use(express.bodyParser());
-  app.use(express.methodOverride());
-  app.use(require('stylus').middleware({ src: __dirname + '/public' }));
   app.use(app.router);
-  app.use(express.static(__dirname + '/public'));
-});
-
-app.configure('development', function(){
   app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 });
 
-app.configure('production', function(){
-  app.use(express.errorHandler());
+// Routes
+app.get('/', function(req, res) {
+	res.send('Node Web REPL test app - parent server - hit #' + global.hits++);
 });
 
-// Routes
-
-app.get('/', routes.index);
-app.post('/api', routes.api);
-
 app.listen(3000, function(){
-  console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
+  console.log("Node Web REPL test app - parent server - listening on port %d in %s mode", app.address().port, app.settings.env);
+	global.hits = 0;
+	webrepl.createServer({username: 'kudu', password: 'zanzibar'});
 });
