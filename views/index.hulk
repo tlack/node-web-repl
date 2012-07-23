@@ -4,7 +4,7 @@
 function boot() {
 	$('#term').terminal('/api', {
 		greetings:'',
-		height:200
+		height:400
 	});
 }
 $(document).ready(boot);
