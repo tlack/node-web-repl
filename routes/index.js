@@ -1,6 +1,6 @@
 var util = require('util');
 
-exports.api = function(req, res) {
+exports.api = (req, res) => {
 	// var eval = (1,eval);
 	var code = req.body.method+' '+req.body.params.join(' ');
 	var evalError;
@@ -14,10 +14,10 @@ exports.api = function(req, res) {
 		evalError = {message: error.toString()};
 		result = null;
 	}
-	var out = {result:result, error:evalError, id:req.body.id};
+	var out = {result, error:evalError, id:req.body.id};
 	res.send(out);
 };
 
-exports.index = function(req, res){
+exports.index = (req, res) => {
   res.render('index', { title: 'Express' })
 };
