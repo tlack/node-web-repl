@@ -2,10 +2,12 @@
  * Module dependencies.
  */
 
-var extend = require('node.extend') //how is this not in node's core?
-	, express = require('express')
-	, hulk = require('hulk-hogan')
-  , routes = require('./routes');
+var //how is this not in node's core?
+extend = require('node.extend');
+
+var express = require('express');
+var hulk = require('hulk-hogan');
+var routes = require('./routes');
 
 function createServer(options) {
 	var defaultz = {
@@ -19,7 +21,7 @@ function createServer(options) {
 
 	// Create Express instance
 	var app = express.createServer();
-	app.configure(function(){
+	app.configure(() => {
 		app.register('.hulk', hulk);
 		app.set('views', __dirname + '/views');
 		app.set('view engine', 'hulk');
@@ -31,11 +33,11 @@ function createServer(options) {
 		app.use(express.static(__dirname + '/public'));
 	});
 
-	app.configure('development', function(){
+	app.configure('development', () => {
 		app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 	});
 
-	app.configure('production', function(){
+	app.configure('production', () => {
 		app.use(express.errorHandler());
 	});
 
@@ -44,7 +46,7 @@ function createServer(options) {
 	app.get('/', routes.index);
 	app.post('/api', routes.api);
 
-	app.listen(options.port, options.host, function(){
+	app.listen(options.port, options.host, () => {
 		console.log("node-web-repl server listening on port %d in %s mode", app.address().port, app.settings.env);
 	});
 }
